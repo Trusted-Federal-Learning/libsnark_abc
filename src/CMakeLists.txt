@@ -1,54 +1,31 @@
 include_directories(.)
 
-add_executable(
-  main
 
-  main.cpp
+add_executable(
+  gen_proof
+  gen_proof.cpp
 )
 target_link_libraries(
-  main
-
+  gen_proof
   snark
 )
 target_include_directories(
-  main
-
+  gen_proof
   PUBLIC
   ${DEPENDS_DIR}/libsnark
   ${DEPENDS_DIR}/libsnark/depends/libfqfft
 )
 
 add_executable(
-  test
-
-  test.cpp
+  verify
+  verify.cpp
 )
 target_link_libraries(
-  test
-
+  verify
   snark
 )
 target_include_directories(
-  test
-
-  PUBLIC
-  ${DEPENDS_DIR}/libsnark
-  ${DEPENDS_DIR}/libsnark/depends/libfqfft
-)
-
-add_executable(
-  range
-
-  range.cpp
-)
-target_link_libraries(
-  range
-
-  snark
-)
-target_include_directories(
-  range
-
+  verify
   PUBLIC
   ${DEPENDS_DIR}/libsnark
   ${DEPENDS_DIR}/libsnark/depends/libfqfft
